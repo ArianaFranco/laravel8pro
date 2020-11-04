@@ -28,3 +28,8 @@ Route::get('/update-post/{id}', [\App\Http\Controllers\HTTPClientController::cla
 Route::get('/delete-post/{id}', [\App\Http\Controllers\HTTPClientController::class, 'deletePost'])->name('client.deletePost');
 
 Route::get('fluent-string', [\App\Http\Controllers\FluentController::class, 'index'])->name('fluent.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
