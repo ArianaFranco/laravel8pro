@@ -17,10 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Using views with components
 Route::resource('products',\App\Http\Controllers\ProductController::class);
 
+//HTTP Client
 Route::get('/posts', [\App\Http\Controllers\HTTPClientController::class, 'getAllPosts'])->name('client.getAllPosts');
 Route::get('/posts/{id}', [\App\Http\Controllers\HTTPClientController::class, 'getPostById'])->name('client.getPostById');
 Route::get('/add-post', [\App\Http\Controllers\HTTPClientController::class, 'addPost'])->name('client.addPost');
 Route::get('/update-post/{id}', [\App\Http\Controllers\HTTPClientController::class, 'updatePost'])->name('client.updatePost');
 Route::get('/delete-post/{id}', [\App\Http\Controllers\HTTPClientController::class, 'deletePost'])->name('client.deletePost');
+
+Route::get('fluent-string', [\App\Http\Controllers\FluentController::class, 'index'])->name('fluent.index');
