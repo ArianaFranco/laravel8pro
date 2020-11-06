@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::resource('products',\App\Http\Controllers\ProductController::class);
 
 //HTTP Client
-Route::get('/posts', [\App\Http\Controllers\HTTPClientController::class, 'getAllPosts'])->name('client.getAllPosts');
+Route::get('/posts', [\App\Http\Controllers\HTTPClientController::class, 'getAllPosts'])->name('client.getAllPosts')->middleware('checkUser');
 Route::get('/posts/{id}', [\App\Http\Controllers\HTTPClientController::class, 'getPostById'])->name('client.getPostById');
 Route::get('/add-post', [\App\Http\Controllers\HTTPClientController::class, 'addPost'])->name('client.addPost');
 Route::get('/update-post/{id}', [\App\Http\Controllers\HTTPClientController::class, 'updatePost'])->name('client.updatePost');
